@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: #000;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 6%;
+    position: absolute;
+    width: 100%;
+    z-index: 100;
+}
+
+.logo { width: 80px; }
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li { margin: 0 25px; }
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover { color: #fc3d21; }
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.8)), 
+                url('https://images-assets.nasa.gov/image/PIA22348/PIA22348~large.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    padding: 0 6%;
+}
+
+.hero-content { max-width: 800px; }
+
+.hero-content h4 {
+    color: #fc3d21;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 10px;
+}
+
+.hero-content h1 {
+    font-size: clamp(3rem, 8vw, 5rem);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    color: #ccc;
+    margin-bottom: 30px;
+    max-width: 600px;
+}
+
+/* Buttons */
+.hero-btns .btn-primary {
+    background: #fc3d21;
+    color: white;
+    padding: 15px 35px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-right: 15px;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.btn-secondary {
+    border: 2px solid white;
+    color: white;
+    padding: 13px 35px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.btn-primary:hover { background: #cc2b16; }
+.btn-secondary:hover { background: white; color: black; }
+
+/* Stats Bar */
+.stats-bar {
+    display: flex;
+    justify-content: space-around;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    padding: 40px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stat-item { text-align: center; }
+
+.stat-item span {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #fc3d21;
+}
+
+.stat-item p {
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    color: #aaa;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hero-content h1 { font-size: 3rem; }
+    .stats-bar { flex-direction: column; gap: 30px; }
+}
