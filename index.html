@@ -3,46 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NASA | Explore the Cosmos</title>
+    <title>NASA Header Clone</title>
     <link rel="stylesheet" href="./styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-    <nav class="navbar">
-        <img src="https://www.nasa.gov/wp-content/themes/nasa/assets/images/nasa-logo.svg" class="logo" alt="NASA">
-        <ul class="nav-links">
-            <li><a href="#">Missions</a></li>
-            <li><a href="#">Galleries</a></li>
-            <li><a href="#">NASA TV</a></li>
-        </ul>
-        <button class="btn-search"><i class="fas fa-search"></i></button>
-    </nav>
-
-    <header class="hero">
-        <div class="hero-content">
-            <h4 class="fade-in">Space Exploration</h4>
-            <h1 class="slide-up">TO THE MOON AND MARS</h1>
-            <p>NASA is exploring the secrets of the universe for the benefit of all.</p>
-            <div class="hero-btns">
-                <a href="#" class="btn-primary">Latest News</a>
-                <a href="#" class="btn-secondary">Watch Live</a>
+    <header class="nasa-header">
+        <div class="nav-left">
+            <button class="nav-link explore-btn">
+                Explore 
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="search-box">
+                <input type="text" placeholder="Search">
             </div>
+        </div>
+
+        <div class="nav-center">
+            <img src="https://www.nasa.gov/wp-content/themes/nasa/assets/images/nasa-logo.svg" alt="NASA Logo" class="logo">
+        </div>
+
+        <div class="nav-right">
+            <button class="nav-link">
+                News & Events
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <button class="nav-link">
+                Multimedia
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <button class="nav-link nasa-plus">
+                NASA+ <span class="live-badge">LIVE</span>
+            </button>
         </div>
     </header>
 
-    <section class="stats-bar">
-        <div class="stat-item">
-            <span>2,500+</span>
-            <p>Active Satellites</p>
+
+
+
+
+    <section class="hero-section">
+        <div class="overlay"></div>
+
+        <div class="hero-content">
+            <h1>Welcome Home</h1>
+            <p>
+                NASA's Artemis II crew returned to Earth on April 10 after a nearly 10-day,
+                record-setting mission. The four astronauts traveled farther from Earth than any
+                humans in history, surpassing the previous distance record set by the Apollo 13 crew
+                in 1970.
+            </p>
+            <button class="btn-primary">Learn More</button>
         </div>
-        <div class="stat-item">
-            <span>12</span>
-            <p>Moon Walkers</p>
-        </div>
-        <div class="stat-item">
-            <span>400km</span>
-            <p>ISS Altitude</p>
+
+        <div class="hero-bottom-nav">
+            <div class="nav-links-container">
+                
+                <div class="nav-item">
+                    <span class="sub-heading">MAKING HISTORY</span>
+                    <a href="#" class="main-link">
+                        Farthest Human Spaceflight
+                        <span class="arrow-icon">&#10132;</span>
+                    </a>
+                </div>
+
+                <div class="nav-item">
+                    <span class="sub-heading">AN INCREDIBLE JOURNEY</span>
+                    <a href="#" class="main-link">
+                        Mission Photos
+                        <span class="arrow-icon">&#10132;</span>
+                    </a>
+                </div>
+
+                <div class="nav-item">
+                    <span class="sub-heading">LUNAR EXPLORATION</span>
+                    <a href="#" class="main-link">
+                        NASA's Artemis Program
+                        <span class="arrow-icon">&#10132;</span>
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="controls">
+                <div class="profile-icon"></div>
+                <button class="pause-btn">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                </button>
+            </div>
         </div>
     </section>
 

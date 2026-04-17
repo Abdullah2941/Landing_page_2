@@ -1,140 +1,380 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap');
-
+/* Reset and Base Styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
 body {
-    background-color: #000;
-    color: white;
-    overflow-x: hidden;
+    /* background-color: #333; Dark background to see the header clearly */
 }
 
-/* Navbar */
-.navbar {
+/* Header Container */
+.nasa-header {
+    background-color: #000000;
+    color: #ffffff;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 6%;
-    position: absolute;
-    width: 100%;
-    z-index: 100;
+    padding: 0 50px;
+    height: 80px;
+    position: relative;
+    border-bottom: 1px solid #222;
 }
 
-.logo { width: 80px; }
-
-.nav-links {
-    list-style: none;
+/* Left & Right Sections */
+.nav-left, .nav-right {
     display: flex;
+    align-items: center;
+    gap: 25px;
 }
 
-.nav-links li { margin: 0 25px; }
+/* Navigation Links / Buttons */
+.nav-link {
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
 
-.nav-links a {
-    color: white;
-    text-decoration: none;
+/* Hover Effect for Links */
+.nav-link:hover {
+    color: #cccccc;
+    transform: translateY(-2px);
+}
+
+.nav-link svg {
+    transition: transform 0.3s ease;
+}
+
+.nav-link:hover svg {
+    transform: rotate(180deg); /* Flips the arrow on hover */
+}
+
+/* Search Box */
+.search-box input {
+    background-color: transparent;
+    border: 1px solid #444;
+    color: #ffffff;
+    padding: 8px 15px;
+    border-radius: 3px;
     font-size: 14px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: 0.3s;
+    width: 200px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.nav-links a:hover { color: #fc3d21; }
+.search-box input:focus {
+    outline: none;
+    border-color: #888;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+}
 
-/* Hero Section */
-.hero {
-    height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.8)), 
-                url('https://images-assets.nasa.gov/image/PIA22348/PIA22348~large.jpg');
+/* Center Logo */
+.nav-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.logo {
+    height: 60px;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+/* LIVE Badge and Animation */
+.live-badge {
+    border: 1px solid #ff3333;
+    color: #ff3333;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 2px;
+    margin-left: 5px;
+    letter-spacing: 1px;
+    animation: pulse 2s infinite;
+}
+.live-badge:hover {
+    animation-play-state: paused; /* Pause animation on hover */
+}
+/* @keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+} */
+
+/* --- Responsiveness --- */
+@media (max-width: 1024px) {
+    .search-box input {
+        width: 150px;
+    }
+}
+
+@media (max-width: 850px) {
+    /* Hide search bar and text links on smaller screens */
+    .search-box {
+        display: none;
+    }
+    .nav-right .nav-link {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 650px) {
+    /* Mobile view adjustments */
+    .nasa-header {
+        padding: 0 15px;
+    }
+    
+    .nav-right {
+        display: none; /* In a real app, you'd replace this with a hamburger menu */
+    }
+    
+    .logo {
+        height: 50px;
+    }
+}
+
+
+
+
+
+
+
+.hero-section {
+    position: relative;
+    width: 100%;
+    min-height: 70vh;
+    /* Replace the URL below with your actual image path e.g., url('images/artemis-crew.jpg') */
+    background-image: url(https://www.nasa.gov/wp-content/uploads/2026/04/55199636042-965f5225c4-o-1.jpg?resize=2000,1862);
     background-size: cover;
     background-position: center;
     display: flex;
-    align-items: center;
-    padding: 0 6%;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.hero-content { max-width: 800px; }
+/* Gradient Overlay for Text Readability */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.2) 60%, transparent 100%);
+    z-index: 1;
+}
 
-.hero-content h4 {
-    color: #fc3d21;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    margin-bottom: 10px;
+/* Main Content area */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    color: #ffffff;
+    max-width: 650px;
+    padding: 12% 5% 5% 5%;
+    animation: fadeInSlideUp 1.2s ease-out forwards;
 }
 
 .hero-content h1 {
-    font-size: clamp(3rem, 8vw, 5rem);
-    font-weight: 900;
-    line-height: 1.1;
+    font-size: 3.5rem;
+    font-weight: 800;
     margin-bottom: 20px;
+    letter-spacing: -1px;
 }
 
 .hero-content p {
-    font-size: 1.2rem;
-    color: #ccc;
+    font-size: 1rem;
+    line-height: 1.6;
     margin-bottom: 30px;
-    max-width: 600px;
+    color: #eeeeee;
 }
 
-/* Buttons */
-.hero-btns .btn-primary {
-    background: #fc3d21;
+/* Button Styling & Hover */
+.btn-primary {
+    background-color: #e32636; /* NASA Red */
     color: white;
-    padding: 15px 35px;
-    text-decoration: none;
-    font-weight: bold;
-    display: inline-block;
-    margin-right: 15px;
-    border-radius: 4px;
-    transition: 0.3s;
-}
-
-.btn-secondary {
-    border: 2px solid white;
-    color: white;
-    padding: 13px 35px;
-    text-decoration: none;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1rem;
     font-weight: bold;
     border-radius: 4px;
-    transition: 0.3s;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.btn-primary:hover { background: #cc2b16; }
-.btn-secondary:hover { background: white; color: black; }
+.btn-primary:hover {
+    background-color: #c41e2b;
+    transform: translateY(-2px);
+}
 
-/* Stats Bar */
-.stats-bar {
+/* Bottom Navigation */
+.hero-bottom-nav {
+    position: relative;
+    z-index: 2;
     display: flex;
-    justify-content: space-around;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    padding: 40px 0;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 25px 5%;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.stat-item { text-align: center; }
-
-.stat-item span {
-    display: block;
-    font-size: 2.5rem;
-    font-weight: 900;
-    color: #fc3d21;
+.nav-links-container {
+    display: flex;
+    gap: 50px;
 }
 
-.stat-item p {
-    text-transform: uppercase;
-    font-size: 0.8rem;
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sub-heading {
+    color: #aaaaaa;
+    font-size: 0.7rem;
+    font-weight: 700;
     letter-spacing: 2px;
-    color: #aaa;
 }
 
-/* Responsive */
+.main-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s ease;
+}
+
+/* Arrow Icon inside red circle */
+.arrow-icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 22px;
+    height: 22px;
+    background-color: #e32636;
+    border-radius: 50%;
+    font-size: 10px;
+    margin-left: 10px;
+    transition: transform 0.3s ease;
+}
+
+/* Hover effect on Bottom Links */
+.main-link:hover {
+    color: #cccccc;
+}
+
+.main-link:hover .arrow-icon {
+    transform: translateX(6px); /* Arrow moves right on hover */
+}
+
+/* Controls (Profile & Pause) */
+.controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.profile-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid white;
+    background-image: url('https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=100&auto=format&fit=crop'); /* Dummy Profile */
+    background-size: cover;
+}
+
+.pause-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    backdrop-filter: blur(5px);
+    transition: background-color 0.3s ease;
+}
+
+.pause-btn:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* --- Animations --- */
+@keyframes fadeInSlideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- Responsiveness --- */
+@media (max-width: 992px) {
+    .nav-links-container {
+        gap: 30px;
+    }
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+}
+
 @media (max-width: 768px) {
-    .nav-links { display: none; }
-    .hero-content h1 { font-size: 3rem; }
-    .stats-bar { flex-direction: column; gap: 30px; }
+    .hero-bottom-nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 30px;
+    }
+    
+    .nav-links-container {
+        flex-direction: column;
+        gap: 25px;
+    }
+    
+    .controls {
+        position: absolute;
+        bottom: 25px;
+        right: 5%;
+    }
+    
+    .hero-content {
+        padding-top: 25%;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    .hero-content p {
+        font-size: 0.95rem;
+    }
 }
