@@ -10,6 +10,11 @@
 
     <header class="nasa-header">
         <div class="nav-left">
+            <button class="hamburger-menu" id="hamburgerBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <button class="nav-link explore-btn">
                 Explore 
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -34,6 +39,12 @@
             </button>
             <button class="nav-link nasa-plus">
                 NASA+ <span class="live-badge">LIVE</span>
+            </button>
+            <button class="search-icon" id="searchIconBtn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.35-4.35"></path>
+                </svg>
             </button>
         </div>
     </header>
@@ -93,6 +104,135 @@
             </div>
         </div>
     </section>
+
+
+
+
+
+
+
+    <div class="container">
+    <header class="section-header">
+        <h2>Featured News</h2>
+        <a href="#" class="recently-published">Recently Published <span>&rarr;</span></a>
+    </header>
+
+    <div class="news-grid">
+        <a href="#" class="card item-main">
+            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=800&auto=format&fit=crop" class="card-bg" alt="NASA Crew">
+            <div class="card-content">
+                <div class="tag-row">
+                    <span>📰 News Release</span>
+                    <span>3 Min Read</span>
+                </div>
+                <h3>NASA to Host Artemis II Crew Postflight News Conference</h3>
+            </div>
+        </a>
+
+        <a href="#" class="card item-vertical">
+            <img src="https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?q=80&w=400&auto=format&fit=crop" class="card-bg" alt="Satellite">
+            <div class="card-content">
+                <div class="tag-row">
+                    <span>📝 Blog</span>
+                    <span>2 Min Read</span>
+                </div>
+                <h3>Expedition 74 Opens Cygnus XL and Unpacks Advanced Science Gear</h3>
+            </div>
+        </a>
+
+        <div class="right-column">
+            <a href="#" class="card item-small">
+                <img src="https://images.unsplash.com/photo-1614729939124-03290b56c9ce?q=80&w=400&auto=format&fit=crop" class="card-bg" alt="Astronaut">
+                <div class="card-content">
+                    <div class="tag-row">
+                        <span>📄 Article</span>
+                        <span>3 Min Read</span>
+                    </div>
+                    <h3>Nutrition Research Arrives Aboard Space Station</h3>
+                </div>
+            </a>
+            
+            <a href="#" class="card item-small">
+                <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?q=80&w=400&auto=format&fit=crop" class="card-bg" alt="Earth Night">
+                <div class="card-content">
+                    <div class="tag-row">
+                        <span>📄 Article</span>
+                        <span>4 Min Read</span>
+                    </div>
+                    <h3>NASA Night-light Imagery Tracks US Energy Transition</h3>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="bottom-list">
+        <a href="#" class="list-item">
+            <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?q=80&w=150&auto=format&fit=crop" class="list-thumb" alt="Space">
+            <div class="list-info">
+                <span class="list-meta">5 Min Read</span>
+                <span class="list-title">NASA's Webb Redefines Dividing Line Between Planets</span>
+                <span class="list-meta">📄 Article</span>
+            </div>
+        </a>
+
+        <a href="#" class="list-item">
+            <img src="https://images.unsplash.com/photo-1541873676-a18131494184?q=80&w=150&auto=format&fit=crop" class="list-thumb" alt="Team">
+            <div class="list-info">
+                <span class="list-meta">6 Min Read</span>
+                <span class="list-title">NASA Announces 32nd Annual Human Exploration Winners</span>
+                <span class="list-meta">📄 Article</span>
+            </div>
+        </a>
+
+        <a href="#" class="list-item">
+            <img src="https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?q=80&w=150&auto=format&fit=crop" class="list-thumb" alt="Graphic">
+            <div class="list-info">
+                <span class="list-meta">2 Min Read</span>
+                <span class="list-title">International Collaboration Helps Pinpoint Universe's Expansion</span>
+                <span class="list-meta">📝 Blog</span>
+            </div>
+        </a>
+
+        <a href="#" class="list-item">
+            <img src="https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?q=80&w=150&auto=format&fit=crop" class="list-thumb" alt="Stars">
+            <div class="list-info">
+                <span class="list-meta">3 Min Read</span>
+                <span class="list-title">What's Up: April 2026 Skywatching Tips from NASA</span>
+                <span class="list-meta">📄 Article</span>
+            </div>
+        </a>
+    </div>
+</div>
+
+<script>
+    // Hamburger Menu Toggle
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const navRight = document.querySelector('.nav-right');
+    
+    hamburgerBtn.addEventListener('click', function() {
+        hamburgerBtn.classList.toggle('active');
+        navRight.classList.toggle('menu-open');
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', function(event) {
+        if (!event.target.closest('.nasa-header')) {
+            hamburgerBtn.classList.remove('active');
+            navRight.classList.remove('menu-open');
+        }
+    });
+    
+    // Search Icon Functionality
+    const searchIconBtn = document.getElementById('searchIconBtn');
+    searchIconBtn.addEventListener('click', function() {
+        const searchBox = document.querySelector('.search-box');
+        const searchInput = searchBox.querySelector('input');
+        searchBox.classList.toggle('search-open');
+        if (searchBox.classList.contains('search-open')) {
+            searchInput.focus();
+        }
+    });
+</script>
 
 </body>
 </html>

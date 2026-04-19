@@ -7,7 +7,7 @@
 }
 
 body {
-    /* background-color: #333; Dark background to see the header clearly */
+    background-color: #fff;
 }
 
 /* Header Container */
@@ -17,10 +17,17 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 50px;
+    padding: 0 20px;
     height: 80px;
     position: relative;
     border-bottom: 1px solid #222;
+    flex-wrap: wrap;
+}
+
+@media (min-width: 769px) {
+    .nasa-header {
+        padding: 0 50px;
+    }
 }
 
 /* Left & Right Sections */
@@ -28,6 +35,24 @@ body {
     display: flex;
     align-items: center;
     gap: 25px;
+}
+
+@media (max-width: 1024px) {
+    .nav-left, .nav-right {
+        gap: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-left, .nav-right {
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-left {
+        gap: 8px;
+    }
 }
 
 /* Navigation Links / Buttons */
@@ -44,6 +69,24 @@ body {
     transition: color 0.3s ease, transform 0.2s ease;
 }
 
+@media (max-width: 1024px) {
+    .nav-link {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-link {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-link {
+        font-size: 11px;
+    }
+}
+
 /* Hover Effect for Links */
 .nav-link:hover {
     color: #cccccc;
@@ -56,6 +99,156 @@ body {
 
 .nav-link:hover svg {
     transform: rotate(180deg); /* Flips the arrow on hover */
+}
+
+/* Hamburger Menu Button */
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    gap: 6px;
+    padding: 0;
+    width: 30px;
+    height: 24px;
+}
+
+.hamburger-menu span {
+    width: 100%;
+    height: 2.5px;
+    background-color: #ffffff;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.hamburger-menu.active span:nth-child(1) {
+    transform: rotate(45deg) translate(10px, 10px);
+}
+
+.hamburger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+@media (max-width: 650px) {
+    .hamburger-menu {
+        display: flex;
+    }
+}
+
+/* Search Icon Button */
+.search-icon {
+    display: none;
+    background: none;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 5px;
+    transition: color 0.3s ease;
+}
+
+.search-icon:hover {
+    color: #cccccc;
+}
+
+@media (max-width: 650px) {
+    .nasa-header {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 15px !important;
+        height: 70px;
+    }
+    
+    .hamburger-menu {
+        display: flex;
+        flex-shrink: 0;
+    }
+    
+    .nav-left {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-shrink: 0;
+    }
+    
+    .explore-btn {
+        display: none !important;
+    }
+    
+    .search-box {
+        display: none !important;
+    }
+    
+    .nav-center {
+        position: absolute !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        flex: none !important;
+        top: 8px;
+    }
+    
+    .logo {
+        height: 50px !important;
+    }
+    
+    .search-icon {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        margin-left: auto;
+        flex-shrink: 0;
+        position: static !important;
+        top: auto !important;
+        right: auto !important;
+        z-index: 101;
+        width: auto !important;
+        height: auto !important;
+        padding: 8px !important;
+    }
+    
+    .nav-right {
+        position: absolute !important;
+        top: 70px !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        flex-direction: column !important;
+        background-color: #1a1a1a !important;
+        border-bottom: 1px solid #333 !important;
+        padding: 15px 20px !important;
+        gap: 0 !important;
+        max-height: 0 !important;
+        overflow: hidden !important;
+        transition: max-height 0.3s ease !important;
+        z-index: 99;
+    }
+    
+    .nav-right.menu-open {
+        max-height: 300px !important;
+    }
+    
+    .nav-right .nav-link {
+        display: flex !important;
+        padding: 12px 0 !important;
+        border-bottom: 1px solid #333 !important;
+        font-size: 14px !important;
+    }
+    
+    .nav-right .nasa-plus {
+        display: flex !important;
+        padding: 12px 0 !important;
+        border: none !important;
+    }
+    
+    .nav-right .search-icon {
+        display: none !important;
+    }
 }
 
 /* Search Box */
@@ -76,6 +269,54 @@ body {
     box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
 }
 
+@media (max-width: 1024px) {
+    .search-box input {
+        width: 150px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .search-box input {
+        width: 120px;
+    }
+}
+
+@media (max-width: 650px) {
+    .search-box {
+        display: none;
+        position: absolute;
+        top: 70px;
+        right: 15px;
+        width: 200px;
+        background-color: #1a1a1a;
+        padding: 10px;
+        border: 1px solid #333;
+        border-radius: 4px;
+        z-index: 100;
+    }
+    
+    .search-box.search-open {
+        display: block !important;
+    }
+    
+    .search-box input {
+        width: 100%;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .search-box {
+        width: 150px;
+        right: 10px;
+    }
+    
+    .search-box input {
+        font-size: 12px;
+    }
+}
+
 /* Center Logo */
 .nav-center {
     position: absolute;
@@ -91,6 +332,18 @@ body {
 
 .logo:hover {
     transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .logo {
+        height: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        height: 40px;
+    }
 }
 
 /* LIVE Badge and Animation */
@@ -123,37 +376,7 @@ body {
     }
 } */
 
-/* --- Responsiveness --- */
-@media (max-width: 1024px) {
-    .search-box input {
-        width: 150px;
-    }
-}
-
-@media (max-width: 850px) {
-    /* Hide search bar and text links on smaller screens */
-    .search-box {
-        display: none;
-    }
-    .nav-right .nav-link {
-        font-size: 13px;
-    }
-}
-
-@media (max-width: 650px) {
-    /* Mobile view adjustments */
-    .nasa-header {
-        padding: 0 15px;
-    }
-    
-    .nav-right {
-        display: none; /* In a real app, you'd replace this with a hamburger menu */
-    }
-    
-    .logo {
-        height: 50px;
-    }
-}
+/* Hero Section Responsiveness - Handled Below */
 
 
 
@@ -166,12 +389,24 @@ body {
     width: 100%;
     min-height: 70vh;
     /* Replace the URL below with your actual image path e.g., url('images/artemis-crew.jpg') */
-    background-image: url(https://www.nasa.gov/wp-content/uploads/2026/04/55199636042-965f5225c4-o-1.jpg?resize=2000,1862);
+    background-image: url(https://www.nasa.gov/wp-content/uploads/2026/04/ksc-20260126-ph-ked01-0028orig.jpg?resize=2000,1333);
     background-size: cover;
     background-position: center;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        min-height: 60vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section {
+        min-height: 50vh;
+    }
 }
 
 /* Gradient Overlay for Text Readability */
@@ -185,6 +420,18 @@ body {
     z-index: 1;
 }
 
+@media (max-width: 768px) {
+    .overlay {
+        background: linear-gradient(to right, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.3) 50%, transparent 100%);
+    }
+}
+
+@media (max-width: 480px) {
+    .overlay {
+        background: linear-gradient(to right, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.4) 40%, transparent 100%);
+    }
+}
+
 /* Main Content area */
 .hero-content {
     position: relative;
@@ -193,6 +440,7 @@ body {
     max-width: 650px;
     padding: 12% 5% 5% 5%;
     animation: fadeInSlideUp 1.2s ease-out forwards;
+    width: 100%;
 }
 
 .hero-content h1 {
@@ -200,6 +448,31 @@ body {
     font-weight: 800;
     margin-bottom: 20px;
     letter-spacing: -1px;
+    line-height: 1.1;
+}
+
+@media (max-width: 1024px) {
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    .hero-content {
+        padding: 30% 5% 5% 5%;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+    .hero-content {
+        padding: 40% 5% 5% 5%;
+    }
 }
 
 .hero-content p {
@@ -207,6 +480,19 @@ body {
     line-height: 1.6;
     margin-bottom: 30px;
     color: #eeeeee;
+}
+
+@media (max-width: 768px) {
+    .hero-content p {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content p {
+        font-size: 0.9rem;
+        margin-bottom: 20px;
+    }
 }
 
 /* Button Styling & Hover */
@@ -227,6 +513,20 @@ body {
     transform: translateY(-2px);
 }
 
+@media (max-width: 768px) {
+    .btn-primary {
+        padding: 10px 20px;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .btn-primary {
+        padding: 10px 18px;
+        font-size: 0.9rem;
+    }
+}
+
 /* Bottom Navigation */
 .hero-bottom-nav {
     position: relative;
@@ -238,11 +538,45 @@ body {
     padding: 25px 5%;
     background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 .nav-links-container {
     display: flex;
     gap: 50px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+@media (max-width: 1024px) {
+    .nav-links-container {
+        gap: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-bottom-nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px 5%;
+    }
+    
+    .nav-links-container {
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-bottom-nav {
+        padding: 15px 5%;
+    }
+    
+    .nav-links-container {
+        gap: 15px;
+    }
 }
 
 .nav-item {
@@ -258,6 +592,19 @@ body {
     letter-spacing: 2px;
 }
 
+@media (max-width: 768px) {
+    .sub-heading {
+        font-size: 0.65rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .sub-heading {
+        font-size: 0.6rem;
+        letter-spacing: 1px;
+    }
+}
+
 .main-link {
     color: #ffffff;
     text-decoration: none;
@@ -266,6 +613,18 @@ body {
     display: flex;
     align-items: center;
     transition: color 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .main-link {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-link {
+        font-size: 0.9rem;
+    }
 }
 
 /* Arrow Icon inside red circle */
@@ -280,6 +639,16 @@ body {
     font-size: 10px;
     margin-left: 10px;
     transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+@media (max-width: 480px) {
+    .arrow-icon {
+        width: 18px;
+        height: 18px;
+        font-size: 8px;
+        margin-left: 8px;
+    }
 }
 
 /* Hover effect on Bottom Links */
@@ -303,8 +672,9 @@ body {
     height: 40px;
     border-radius: 50%;
     border: 2px solid white;
-    background-image: url('https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=100&auto=format&fit=crop'); /* Dummy Profile */
+    background-image: url('https://www.nasa.gov/wp-content/uploads/2026/04/ksc-20260126-ph-ked01-0028orig.jpg?resize=2000,1333'); /* Dummy Profile */
     background-size: cover;
+    flex-shrink: 0;
 }
 
 .pause-btn {
@@ -319,10 +689,34 @@ body {
     cursor: pointer;
     backdrop-filter: blur(5px);
     transition: background-color 0.3s ease;
+    flex-shrink: 0;
 }
 
 .pause-btn:hover {
     background-color: rgba(255, 255, 255, 0.4);
+}
+
+@media (max-width: 768px) {
+    .controls {
+        position: absolute;
+        bottom: 20px;
+        right: 5%;
+        gap: 10px;
+    }
+    
+    .profile-icon,
+    .pause-btn {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-icon,
+    .pause-btn {
+        width: 32px;
+        height: 32px;
+    }
 }
 
 /* --- Animations --- */
@@ -378,3 +772,269 @@ body {
         font-size: 0.95rem;
     }
 }
+
+
+
+
+.container {
+    max-width: 1200px;
+    width: 100%;
+    padding: 100px 20px;
+    margin-left: 300px;
+    /* display: flex; */
+    /* justify-content: center;
+    align-items: center; */
+}
+
+@media (max-width: 1024px) {
+    .container {
+        margin-left: 200px;
+        padding: 80px 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        margin-left: 0;
+        padding: 60px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        margin-left: 0;
+        padding: 40px 10px;
+    }
+}
+
+        /* ================= Header Section ================= */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            border-bottom: 2px solid transparent;
+        }
+
+        .section-header h2 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            color: #1a1a1a;
+        }
+
+        .recently-published {
+            font-weight: 600;
+            color: #1a1a1a;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .recently-published span {
+            background-color: #ff3b30;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+
+        .recently-published:hover span {
+            transform: translateX(5px);
+        }
+
+        /* ================= Main Grid Layout ================= */
+        .news-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        /* Card Styles & Hover Effects */
+        .card {
+            position: relative;
+            border-radius: 4px;
+            overflow: hidden;
+            text-decoration: none;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 20px;
+            background-color: #000;
+            min-height: 250px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .card-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+            z-index: 1;
+        }
+
+        .card:hover .card-bg {
+            transform: scale(1.05); /* Image zoom effect on hover */
+        }
+
+        /* Dark Gradient Overlay for Text Readability */
+        .card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.8) 100%);
+            z-index: 2;
+        }
+
+        .card-content {
+            position: relative;
+            z-index: 3;
+        }
+
+        .tag-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        /* Specific Grid Items Sizing */
+        .item-main {
+            min-height: 400px;
+        }
+        .item-main h3 {
+            font-size: 1.8rem;
+        }
+        
+        .item-vertical {
+            min-height: 400px;
+        }
+
+        .right-column {
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            gap: 15px;
+        }
+        
+        .item-small {
+            min-height: auto;
+        }
+
+        /* ================= Bottom Row (List Items) ================= */
+        .bottom-list {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+
+        .list-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+            color: #333;
+            transition: transform 0.3s ease;
+        }
+
+        .list-item:hover {
+            transform: translateX(5px);
+        }
+
+        .list-thumb {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .list-info {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .list-meta {
+            font-size: 0.7rem;
+            color: #777;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .list-title {
+            font-size: 0.9rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        /* ================= Responsive Design (Media Queries) ================= */
+        
+        /* Tablets & Smaller Laptops */
+        @media (max-width: 992px) {
+            .news-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .item-main {
+                grid-column: span 2;
+            }
+            .bottom-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Mobile Devices */
+        @media (max-width: 768px) {
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+            .item-main {
+                grid-column: span 1;
+                min-height: 300px;
+            }
+            .item-vertical, .item-small {
+                min-height: 250px;
+            }
+            .right-column {
+                display: grid;
+                grid-template-columns: 1fr;
+            }
+            .bottom-list {
+                grid-template-columns: 1fr;
+            }
+        }
