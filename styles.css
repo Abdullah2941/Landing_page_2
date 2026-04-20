@@ -1038,3 +1038,130 @@ body {
                 grid-template-columns: 1fr;
             }
         }
+
+
+
+
+
+        /* Layout Container */
+        .hero-banner {
+            padding: 80px 20px;
+            display: flex;
+            justify-content: center;
+            background-color: black;
+        }
+
+        .inner-wrap {
+            max-width: 1200px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        /* Left Column: Text Content */
+        .info-box {
+            flex: 1;
+            max-width: 450px;
+        }
+
+        .sub-heading {
+            color: #888888;
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .info-box h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.1;
+            color:white;
+        }
+
+        .info-box p {
+            color: #cccccc;
+            font-size: 0.95rem;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        /* Call to Action Button */
+        .action-link {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: opacity 0.3s ease;
+        }
+
+        .action-link:hover {
+            opacity: 0.8;
+        }
+
+        .icon-circle {
+            background-color: #e53935; /* Red circle */
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.8rem;
+            line-height: 1;
+        }
+
+        /* Right Column: Video Content */
+        .media-side {
+            flex: 1.5;
+            width: 100%;
+        }
+
+        .player-box {
+            position: relative;
+            padding-bottom: 56.25%; 
+            /* 16:9 Aspect Ratio */
+            height: 50%;
+            width:100%
+            /* overflow: hidden; */
+            /* Creates the diagonal cut effect on the left side of the video */
+            /* clip-path: polygon(8% 0, 100% 0, 100% 100%, 0 100%); */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .player-box iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Responsive Design for Tablets and Mobile */
+        @media (max-width: 900px) {
+            .inner-wrap {
+                flex-direction: column;
+                text-align: center;
+                gap: 40px;
+            }
+
+            .info-box {
+                max-width: 100%;
+            }
+
+            .action-link {
+                justify-content: center;
+            }
+
+            .player-box {
+                /* Remove the diagonal cut on smaller screens for a full view */
+                clip-path: none; 
+            }
+        }
